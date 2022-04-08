@@ -97,7 +97,7 @@ button:hover {
 }
 
 .inputValue {
-  width: 100%;
+  width: 300px;
   outline: none;
   padding: 8px 16px;
   border-color: gray;

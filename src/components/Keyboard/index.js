@@ -1,32 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-import calculate from "../../services/calculate";
 import Button from "../Button";
 
-const initialState = ''
-
-export default function Calculator() {
-    const [result, setResult] = useState(initialState)
-    const [value , setValue] = useState(initialState)
-
-    const handleNumber = ({ target }) => {
-      setValue(value + target.value)
-    }
-
-    const clear = () => {
-      setValue(initialState)
-      setResult(initialState)
-    }
-
-    const getResult = () => {
-      const total = calculate(value)
-      setResult(total)
-    }
-
+export default function Calculator({ handleNumber, clear, getResult }) {
     return (
-        <div className="wrapper">
-          <h1>{result}</h1>
-          <input className="inputValue" value={value} onChange={({ target }) => setValue(target.value)} />
+        <>
           <div>
             <Button onClick={handleNumber} value='('>(</Button>
             <Button onClick={handleNumber} value=')'>)</Button>
@@ -57,6 +35,6 @@ export default function Calculator() {
             <Button onClick={getResult} value='='>=</Button>
             <Button onClick={handleNumber} className="orange" value='+'>+</Button>
           </div>
-        </div>
+        </>
     )
 }
